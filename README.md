@@ -1,1 +1,3 @@
-# desafio-dio-nodejs-api-champions-league
+# Create API Champions League with NodeJS 
+
+DIO.ME challenge
