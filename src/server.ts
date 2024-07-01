@@ -1,13 +1,16 @@
-import express, {Request, Response} from "express";
+import express, {Request, Response, json} from "express";
 
 const app = express();
 const port = process.env.PORT;
 
+app.use(json());
 
 app.get("/", (request: Request, response: Response) => {
 
-console.log("Server Init");
+response.status(200).json({player : "Leonel Messi"});
 
 });
 
-app.listen(3000);
+app.listen(port, ()=> {
+    console.log(`Server running at port http://localhost:${port}`);
+});

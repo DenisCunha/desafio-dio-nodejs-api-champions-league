@@ -27,6 +27,6 @@ var import_express = __toESM(require("express"));
 var app = (0, import_express.default)();
 var port = process.env.PORT;
 app.get("/", (request, response) => {
-  console.log("Server Init");
+  response.send("Server Init");
 });
-app.listen(port);
+app.listen(3e3);
