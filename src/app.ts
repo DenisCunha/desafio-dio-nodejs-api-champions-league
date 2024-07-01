@@ -1,11 +1,13 @@
-import express, {Request, Response, json} from "express";
+import express from "express";
+
+import router from "./routes";
 
 function createApp() {
 const app = express();
-app.use(json());
-app.get("/", (request: Request, response: Response) => {
-    response.status(200).json({player : "Leonel Messi"});
-});
+
+app.use(express.json());
+
+app.use("/api", router)
 
 return app;
 }
