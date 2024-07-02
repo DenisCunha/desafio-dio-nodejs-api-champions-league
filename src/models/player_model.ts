@@ -2,7 +2,7 @@ export interface PlayerModel {
     id: number;
     name: string;
     club: string;
-    natiolatity: string;
+    nationality: string;
     position: string;
     statistics: {
        Overall: number;

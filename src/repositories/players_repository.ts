@@ -4,7 +4,7 @@ const database: PlayerModel[] = [
 {   id: 1,
     name: "Lionel Messi",
     club: "Paris Saint-Germain",
-    natiolatity: "Argentina",
+    nationality: "Argentina",
     position: "Forward",
     statistics: {
        Overall: 93,
@@ -20,7 +20,7 @@ const database: PlayerModel[] = [
     id: 2,
     name: "Critiano Ronaldo",
     club: "Al-Nassr Football Club",
-    natiolatity: "Portual",
+    nationality: "Portual",
     position: "Forward",
     statistics: {
        Overall: 95,

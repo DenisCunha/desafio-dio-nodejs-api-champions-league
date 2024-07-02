@@ -23,6 +23,9 @@ export const postPlayer = async (request: Request, response: Response) => {
     const httpResponse = await service.createPlayerService(content);
 
     if (httpResponse) {
-    response.status(httpResponse.statusCode).json(httpResponse.body);
-    } 
+     response.status(httpResponse.statusCode).json(httpResponse.body);
+    } /*else {
+        const res = await noContent();
+        response.status(res.statusCode).json(res.body);
+    }*/
 };

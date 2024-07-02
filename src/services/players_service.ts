@@ -29,9 +29,10 @@ export const getPlayerServiceId = async (id: number) => {
 };
 
 export const createPlayerService = async (player: PlayerModel) => {
+  
     let  res = null;
 
-    if(Object.keys(player).length === 0) {
+    if(Object.keys(player).length != 0) {
      await PlayerRepository.insertPlayer(player);
      res = await httpResponseContent.created();
     } else {
