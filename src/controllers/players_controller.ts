@@ -29,3 +29,10 @@ export const postPlayer = async (request: Request, response: Response) => {
         response.status(res.statusCode).json(res.body);
     }*/
 };
+
+export const deletePlayer = async (request: Request, response: Response) => {
+    const id = parseInt(request.params.id);
+    const httpResponse = await service.deletePlayerService(id);
+
+    response.status(httpResponse.statusCode).json(httpResponse.body);
+};
