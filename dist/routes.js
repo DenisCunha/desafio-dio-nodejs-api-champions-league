@@ -5,6 +5,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
@@ -21,6 +25,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
     var fulfilled = (value) => {
@@ -42,10 +47,12 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
-// src/app.ts
-var import_express2 = __toESM(require("express"));
-
 // src/routes.ts
+var routes_exports = {};
+__export(routes_exports, {
+  default: () => routes_default
+});
+module.exports = __toCommonJS(routes_exports);
 var import_express = require("express");
 
 // src/repositories/players_repository.ts
@@ -276,25 +283,3 @@ router.patch("/players/:id", updatePlayer);
 router.get("/clubs", getClubs);
 router.get("/clubs/:id", getClubById);
 var routes_default = router;
-
-// src/app.ts
-var import_cors = __toESM(require("cors"));
-function createApp() {
-  const app2 = (0, import_express2.default)();
-  app2.use(import_express2.default.json());
-  app2.use("/api", routes_default);
-  const corsOptions = {
-    origin: "*"
-  };
-  app2.use((0, import_cors.default)(corsOptions));
-  return app2;
-}
-var app_default = createApp;
-
-// src/server.ts
-var app = app_default();
-var port = process.env.PORT;
-var host = process.env.HOST;
-app.listen(port, () => {
-  console.log(`Server running at port ${host}:${port}`);
-});

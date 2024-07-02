@@ -1,10 +1,12 @@
 "use strict";
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
@@ -13,14 +15,7 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
     var fulfilled = (value) => {
@@ -42,11 +37,16 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
-// src/app.ts
-var import_express2 = __toESM(require("express"));
-
-// src/routes.ts
-var import_express = require("express");
+// src/controllers/players_controller.ts
+var players_controller_exports = {};
+__export(players_controller_exports, {
+  deletePlayer: () => deletePlayer,
+  getPlayer: () => getPlayer,
+  getPlayerById: () => getPlayerById,
+  postPlayer: () => postPlayer,
+  updatePlayer: () => updatePlayer
+});
+module.exports = __toCommonJS(players_controller_exports);
 
 // src/repositories/players_repository.ts
 var database = [
@@ -214,87 +214,11 @@ var updatePlayer = (request, response) => __async(void 0, null, function* () {
   const httpResponse = yield updatePlayerService(id, bodyvalue);
   response.status(httpResponse.statusCode).json(httpResponse.body);
 });
-
-// src/repositories/clubs_repository.ts
-var import_promises = __toESM(require("fs/promises"));
-function conectJson() {
-  return __async(this, null, function* () {
-    const databasejson = yield import_promises.default.readFile("./src/data/clubs.json", "utf-8");
-    const database2 = JSON.parse(databasejson);
-    return database2;
-  });
-}
-var findAllClubs = () => __async(void 0, null, function* () {
-  const data = yield conectJson();
-  return data;
-});
-var findClubsId = (id) => __async(void 0, null, function* () {
-  const data = yield conectJson();
-  return data.find((club) => club.id === id);
-});
-
-// src/services/clubs_services.ts
-var getClubService = () => __async(void 0, null, function* () {
-  const data = yield findAllClubs();
-  let res = null;
-  if (data) {
-    res = yield ok(data);
-  } else {
-    res = yield noContent();
-  }
-  return res;
-});
-var getClubServiceId = (id) => __async(void 0, null, function* () {
-  const data = yield findClubsId(id);
-  let res = null;
-  if (data) {
-    res = yield ok(data);
-  } else {
-    res = yield noContent();
-  }
-  return res;
-});
-
-// src/controllers/clubs_controller.ts
-var getClubs = (request, response) => __async(void 0, null, function* () {
-  const httpResponse = yield getClubService();
-  response.status(httpResponse.statusCode).json(httpResponse.body);
-});
-var getClubById = (request, response) => __async(void 0, null, function* () {
-  const id = parseInt(request.params.id);
-  const httpResponse = yield getClubServiceId(id);
-  response.status(httpResponse.statusCode).json(httpResponse.body);
-});
-
-// src/routes.ts
-var router = (0, import_express.Router)();
-router.get("/players", getPlayer);
-router.get("/players/:id", getPlayerById);
-router.post("/players", postPlayer);
-router.delete("/players/:id", deletePlayer);
-router.patch("/players/:id", updatePlayer);
-router.get("/clubs", getClubs);
-router.get("/clubs/:id", getClubById);
-var routes_default = router;
-
-// src/app.ts
-var import_cors = __toESM(require("cors"));
-function createApp() {
-  const app2 = (0, import_express2.default)();
-  app2.use(import_express2.default.json());
-  app2.use("/api", routes_default);
-  const corsOptions = {
-    origin: "*"
-  };
-  app2.use((0, import_cors.default)(corsOptions));
-  return app2;
-}
-var app_default = createApp;
-
-// src/server.ts
-var app = app_default();
-var port = process.env.PORT;
-var host = process.env.HOST;
-app.listen(port, () => {
-  console.log(`Server running at port ${host}:${port}`);
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  deletePlayer,
+  getPlayer,
+  getPlayerById,
+  postPlayer,
+  updatePlayer
 });
