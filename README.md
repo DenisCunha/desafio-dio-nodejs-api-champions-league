@@ -18,8 +18,8 @@ Desenvolvido uma API para consumo de times de futebol, fonte Champions League
 - Cors
 
 # Executar API
-Instale as dependências usando comando npm install
-Executar o comando npm run start:dev pra iniciar o server localmente ou em modo Watch npm run start:watch
+Instale as dependências usando comando **npm install**
+Executar o comando **npm run start:dev** pra iniciar o server localmente ou em modo Watch **npm run start:watch**
 ENDPOINTS 
 - http://localhost:3333/players (method GET obtem a lista de jogadores)
 - http://localhost:3333/players/1 (method GET filtra um jogador pelo ID)
