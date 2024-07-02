@@ -3,19 +3,19 @@ Api criada com express para desafio  DIO  NodeJS Professor @https://github.com/f
 Desenvolvido uma API para consumo de times de futebol, fonte Champions League
 
 # Funções
-Insert
-Update
-Delete
+- Insert
+- Update
+- Delete
 
 # Methods 
-GET
-POST
-PATCH
-DELETE
+- GET
+- POST
+- PATCH
+- DELETE
 
 # Dependências
-Express
-Cors
+- Express
+- Cors
 
 # Executar API
 Instale as dependências usando comando npm install
