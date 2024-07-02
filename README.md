@@ -19,6 +19,7 @@ Desenvolvido uma API para consumo de times de futebol, fonte Champions League
 
 # Executar API
 Instale as dependências usando comando **npm install**
+
 Executar o comando **npm run start:dev** pra iniciar o server localmente ou em modo Watch **npm run start:watch**
 
 #### ENDPOINTS 
