@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as PlayerController from "./controllers/players_controller";
+import * as ClubController from "./controllers/clubs_controller";
 
 const router = Router();
 
@@ -9,7 +10,9 @@ router.get("/players/:id", PlayerController.getPlayerById);
 router.post("/players", PlayerController.postPlayer);
 
 router.delete("/players/:id", PlayerController.deletePlayer);
-
 router.patch("/players/:id", PlayerController.updatePlayer);
+
+router.get("/clubs", ClubController.getClubs);
+router.get("/clubs/:id", ClubController.getClubById);
 
 export default router;

@@ -1,5 +1,4 @@
 export interface PlayerModel {
-    findIndex(arg0: (player: any) => boolean): unknown;
     id: number;
     name: string;
     club: string;
@@ -14,7 +13,4 @@ export interface PlayerModel {
        Defending: number;
        Physical: number; 
     };
-
 };
-
-
